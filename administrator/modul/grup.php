@@ -19,6 +19,7 @@ require_once("action/grup.php");
                                 <th>Tujuan</th>
                                 <th>Prodi</th>
                                 <th>Pendamping</th>
+                                <th>Kursi</th>
                                 <th>Opsi</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@ require_once("action/grup.php");
                                 <td>'.$res['nama_tujuan'].'</td>
                                 <td>'.$res['prodi'].'</td>
                                 <td>'.$res['pendamping'].'</td>
+                                <td>'.$res['seat'].'</td>
                                 <td class="center">
                                     <a href="?modul=grup&act=edit&id='.$res['grup_id'].'" class="btn btn-success btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a href="?modul=grup&act=delete&id='.$res['grup_id'].'" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></a>  
@@ -75,6 +77,9 @@ require_once("action/grup.php");
                               <input type="text" name="pendamping" id="pendamping" class="form-control form-control-sm" placeholder="Pendamping">
                             </div>
                             <div class="form-group">
+                              <input type="number" name="seat" id="seat" class="form-control form-control-sm" placeholder="Kursi">
+                            </div>
+                            <div class="form-group">
                               <textarea class="form-control form-control-sm" name="keterangan" id="keterangan" rows="3"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm " name="btnSimpan">Simpan</button>
@@ -91,6 +96,7 @@ require_once("action/grup.php");
                         $nama_grup = $res['nama_grup'];
                         $tujuan = $res['tujuan_id'];
                         $pendamping = $res['pendamping'];
+                        $kursi = $res['kursi'];
                         $keterangan = $res['keterangan'];
                     }
                     ?>
@@ -102,7 +108,7 @@ require_once("action/grup.php");
                               <input type="text" name="nama_grup" id="nama_grup" class="form-control form-control-sm" value="<?=$nama_grup?>">
                             </div>
                             <div class="form-group">
-                                <select class="form-control form-control-sm" name="prodi" id="prodi">
+                                <select class="form-control form-control-sm" name="tujuan" id="tujuan">
                                     <?php
                             // show tujuan
                             $query = "SELECT tujuan_id,nama_tujuan FROM tujuan ORDER BY prodi";
@@ -117,6 +123,12 @@ require_once("action/grup.php");
                             }
                             ?>
                               </select>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" name="pendamping" id="pendamping" class="form-control form-control-sm" value="<?=$pendamping?>">
+                            </div>
+                            <div class="form-group">
+                              <input type="number" name="seat" id="seat" class="form-control form-control-sm" value="<?=$kursi?>">
                             </div>
                             <div class="form-group">
                               <textarea class="form-control form-control-sm" name="keterangan" id="keterangan" rows="3"><?=$keterangan?></textarea>

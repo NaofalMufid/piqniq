@@ -12,5 +12,5 @@ if ($mod == 'tujuan') {
 }else if($mod == "tiket"){
     require_once"tiket.php";
 } else {
-    echo "<h2>404 Rak Ono Latar</h2>";
+    //echo "<h2>404 Rak Ono Latar</h2>";
 }

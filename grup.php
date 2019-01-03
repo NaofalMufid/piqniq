@@ -1,3 +1,6 @@
+<?php
+$grup = new View();
+?>
 <section id="grup" class="bg-light">
     <div class="container">
     <div class="row">
@@ -6,30 +9,27 @@
         <hr>
         <p class="lead text-center">Grup atau rombongan berdasarkan bus dan prodi</p>
         <ul class="list-group">
-            <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-            Bus 1 : Arsitektur Jumlah kursi 45
-            <span class="badge badge-success badge-pill">5 kosong</span>
-            </li>
-            <li class="list-group-item  d-flex justify-content-between align-items-center">
-            Bus 2 : Teknik Sipil Jumlah kursi 45
-            <span class="badge badge-warning badge-pill">14 kosong</span>
-            </li>
-            <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-            Bus 3 : Teknik Sipil Jumlah kursi 45
-            <span class="badge badge-success badge-pill">5 kosong</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-            Bus 4 : Teknik & Manajemen Informatika Jumlah kursi 45
-            <span class="badge badge-warning badge-pill">10 kosong</span>
-            </li>
-            <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-            Bus 5 : Teknik Informatika Jumlah kursi 45
-            <span class="badge badge-success badge-pill">12 kosong</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-            Bus 6 : Teknik Informatika Jumlah kursi 45
-            <span class="badge badge-warning badge-pill">7 kosong</span>
-            </li>
+        <?php
+            $query = "SELECT grup.*,tujuan.nama_tujuan,tujuan.prodi FROM grup,tujuan WHERE grup.tujuan_id=tujuan.tujuan_id ORDER BY nama_grup";
+            $data = $grup->getData($query);
+            $no = 1;
+            foreach ($data as $key => $res) {
+                if ($no % 2 == 0) {
+                    echo '
+                    <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                    '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
+                    <span class="badge badge-success badge-pill">5 kosong</span>
+                    </li>';
+                } else {
+                    echo '
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
+                    '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
+                    <span class="badge badge-warning badge-pill">14 kosong</span>
+                    </li>';
+                }
+                $no++;
+            }
+            ?>
         </ul>
         </div>
     </div>

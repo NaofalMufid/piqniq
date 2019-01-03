@@ -1,3 +1,6 @@
+<?php
+$daftar = new View();
+?>
 <section id="daftar" class="bg-light">
     <div class="container">
         <div class="row">
@@ -20,16 +23,17 @@
                             <div class="form-group col-md-6">
                               <label for="">Prodi</label>
                               <select class="form-control" name="prodi" id="prodi">
-                                <option>Arsitek</option>
-                                <option>Teknik Sipil</option>
-                                <option>Teknik Informatika</option>
-                                <option>Manajemen Informatika</option>
-                                <option>Teknik Mesin</option>
+                                <option selected>Prodi</option>
+                                <option value="Arsitek">Arsitek</option>
+                                <option value="Teknik Sipil">Teknik Sipil</option>
+                                <option value="Teknik Informatika">Teknik Informatika</option>
+                                <option value="Manajemen Informatika">Manajemen Informatika</option>
+                                <option value="Teknik Mesin">Teknik Mesin</option>
                               </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="">No. Telphon</label>
-                                <input type="text" class="form-control" name="nim" id="nim" placeholder="NIM">
+                                <label for="">Kontak</label>
+                                <input type="text" class="form-control" name="kontak" id="kontak" placeholder="Kontak">
                             </div>
                         </div>
                     </fieldset>
@@ -40,25 +44,19 @@
                         <div class="form-row">
                             <div class="col-auto">
                                 <select class="form-control" name="grup" id="grup">
-                                    <option>Bis 1 Arsitek</option>
-                                    <option>Bis 2 Teknik Sipil</option>
-                                    <option>Bis 3 Teknik Sipil</option>
-                                    <option>Bis 4 TI & SI</option>
-                                    <option>Bis 5 Teknik Informatika</option>
-                                    <option>Bis 6 Teknik Informatika</option>
+                                <?php
+                                    $grup = "SELECT grup_id,nama_grup FROM grup ORDER BY nama_grup";
+                                    $data = $daftar->getData($grup);
+                                    $no = 1;
+                                    foreach ($data as $key => $res) {
+                                        echo '<option value="'.$res['grup_id'].'">'.$res['nama_grup'].'</option>';
+                                    }
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <input list="kamar" class="form-control" placeholder="Kamar">
-                                <datalist id="kamar">
-                                    <option value="Kamar 1 Arsitek"></option>
-                                    <option value="Kamar 2 Arsitek"></option>
-                                    <option value="Kamar 3 Arsitek"></option>
-                                    <option value="Kamar 4 Arsitek"></option>
-                                    <option value="Kamar 5 Arsitek"></option>
-                                    <option value="Kamar 1 Teknik Sipil"></option>
-                                    <option value="Kamar 2 Teknik Sipil"></option>
-                                </datalist>
+                                <input type="text" class="form-control" name="kamar" id="kamar" value="" placeholder="Kamar">
+                                <input type="hidden" name="kamar_id" name="kamar_id" value="">
                             </div>
                             <button type="submit" class="btn btn-primary btn-xs">Submit</button>
                         </div>        

@@ -1,3 +1,6 @@
+<?php
+$kamar = new View();
+?>
 <section id="kamar">
     <div class="container">
     <div class="row">
@@ -28,33 +31,21 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Kamar 1 Arsitektur</td>
-                                <td>4</td>
-                                <td>
-                                <span class="badge badge-danger badge-pill">0</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kamar 2 Arsitektur</td>
-                                <td>4</td>
-                                <td>
-                                <span class="badge badge-info badge-pill">3</span></td>
-                            </tr>
-                            <tr>
-                                <td>Kamar 3 Informatika</td>
-                                <td>4</td>
-                                <td>
-                                <span class="badge badge-danger badge-pill">0</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Kamar 4</td>
-                                <td>4</td>
-                                <td>
-                                <span class="badge badge-info badge-pill">1</span>
-                                </td>
-                            </tr>
+                            <?php
+                            $query = "SELECT * FROM kamar WHERE nama_kamar LIKE'%HL%' OR keterangan LIKE '%laki%' ORDER BY nama_kamar";
+                            $data = $kamar->getData($query);
+                            $no = 1;
+                            foreach ($data as $key => $res) {
+                                echo'
+                                    <tr>
+                                        <td>'.$res['nama_kamar'].'</td>
+                                        <td>'.$res['isi'].'</td>
+                                        <td>
+                                        <span class="badge badge-danger badge-pill">0</span>
+                                        </td>
+                                    </tr>';    
+                            }
+                            ?>
                             </tbody>
                         </table>
                 </div>
@@ -81,33 +72,21 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Kamar 1 Arsitektur</td>
-                            <td>4</td>
-                            <td>
-                            <span class="badge badge-danger badge-pill">0</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kamar 2 Arsitektur</td>
-                            <td>4</td>
-                            <td>
-                            <span class="badge badge-info badge-pill">3</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kamar 3 Informatika</td>
-                            <td>4</td>
-                            <td>
-                            <span class="badge badge-info badge-pill">2</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kamar 4</td>
-                            <td>4</td>
-                            <td>
-                            <span class="badge badge-danger badge-pill">0</span>
-                            </td>
-                        </tr>
+                            <?php
+                            $query = "SELECT * FROM kamar WHERE nama_kamar LIKE'%HP%' OR keterangan LIKE '%perempuan%' ORDER BY nama_kamar";
+                            $data = $kamar->getData($query);
+                            $no = 1;
+                            foreach ($data as $key => $res) {
+                                echo'
+                                    <tr>
+                                        <td>'.$res['nama_kamar'].'</td>
+                                        <td>'.$res['isi'].'</td>
+                                        <td>
+                                        <span class="badge badge-danger badge-pill">0</span>
+                                        </td>
+                                    </tr>';    
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>

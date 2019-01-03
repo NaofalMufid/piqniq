@@ -16,6 +16,7 @@ require_once("action/kamar.php");
                             <tr>
                                 <th>No.</th>
                                 <th>Nama kamar</th>
+                                <th>Isi</th>
                                 <th>Keterangan</th>
                                 <th>Opsi</th>
                             </tr>
@@ -30,6 +31,7 @@ require_once("action/kamar.php");
                                 echo'<tr class="odd gradeX">
                                 <td>'.$no.'.</td>
                                 <td>'.$res['nama_kamar'].'</td>
+                                <td>'.$res['isi'].'</td>
                                 <td>'.$ket.'...</td>
                                 <td class="center">
                                     <a href="?modul=kamar&act=edit&id='.$res['kamar_id'].'" class="btn btn-success btn-sm"><i class="fa fa-edit" aria-hidden="true"></i></a>
@@ -55,6 +57,9 @@ require_once("action/kamar.php");
                               <input type="text" name="nama_kamar" id="nama_kamar" class="form-control form-control-sm" placeholder="Nama kamar">
                             </div>
                             <div class="form-group">
+                              <input type="number" name="isi" id="isi" class="form-control form-control-sm" placeholder="Isi">
+                            </div>
+                            <div class="form-group">
                               <textarea class="form-control form-control-sm" name="keterangan" id="keterangan" rows="3"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-sm " name="btnSimpan">Simpan</button>
@@ -69,6 +74,7 @@ require_once("action/kamar.php");
                     $data = $kamar->getData("SELECT * FROM kamar WHERE kamar_id='$id'");
                     foreach ($data as $res) {
                         $nama_kamar = $res['nama_kamar'];
+                        $isi = $res['isi'];
                         $keterangan = $res['keterangan'];
                     }
                     ?>
@@ -78,6 +84,9 @@ require_once("action/kamar.php");
                             <input type="hidden" name="kamar_id" value="<?=$id?>">
                             <div class="form-group">
                               <input type="text" name="nama_kamar" id="nama_kamar" class="form-control form-control-sm" value="<?=$nama_kamar?>">
+                            </div>
+                            <div class="form-group">
+                              <input type="number" name="isi" id="isi" class="form-control form-control-sm" value="<?=$isi?>">
                             </div>
                             <div class="form-group">
                               <textarea class="form-control form-control-sm" name="keterangan" id="keterangan" rows="3"><?=$keterangan?></textarea>
