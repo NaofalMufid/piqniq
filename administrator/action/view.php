@@ -24,6 +24,20 @@ class View extends Database
         return $rows;
     }
 
+    /**
+     * execute() : fungsi untuk eksekusi terkait DML
+     */
+    public function execute($query)
+    {
+        $result = $this->db->multi_query($query);
+        if ($result === false) {
+            echo "Cannot execute the command !";
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function escape_string($value)
     {
         return $this->db->real_escape_string($value);

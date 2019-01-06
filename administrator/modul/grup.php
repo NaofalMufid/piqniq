@@ -96,7 +96,7 @@ require_once("action/grup.php");
                         $nama_grup = $res['nama_grup'];
                         $tujuan = $res['tujuan_id'];
                         $pendamping = $res['pendamping'];
-                        $kursi = $res['kursi'];
+                        $kursi = $res['seat'];
                         $keterangan = $res['keterangan'];
                     }
                     ?>

@@ -24,7 +24,7 @@ require_once("action/tiket.php");
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT tiket.nim, peserta.nama, grup.nama_grup, kamar.nama_kamar, tiket.waktu FROM tiket, peserta, grup, kamar WHERE tiket.nim=peserta.nim AND tiket.grup_id=grup.grup_id AND tiket.kamar_id=kamar.kamar_id ORDER BY grup.nama_grup";
+                            $query = "SELECT tiket.tiket_id,tiket.nim, peserta.nama, grup.nama_grup, kamar.nama_kamar, tiket.waktu FROM tiket, peserta, grup, kamar WHERE tiket.nim=peserta.nim AND tiket.grup_id=grup.grup_id AND tiket.kamar_id=kamar.kamar_id ORDER BY grup.nama_grup";
                             $data = $tiket->getData($query);
                             $no = 1;
                             foreach ($data as $key => $res) {

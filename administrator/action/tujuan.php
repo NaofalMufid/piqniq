@@ -1,6 +1,14 @@
 <?php
 require_once("action/crud.php");
 $tujuan = new Crud();
+
+/**
+ * Get data dari FORM
+ */
+$nama_tujuan = $tujuan->escape_string($_POST['nama_tujuan']);
+$prodi = $tujuan->escape_string($_POST['prodi']);
+$keterangan = $tujuan->escape_string($_POST['keterangan']);
+
 /**
  * Add data ke database
  */
@@ -13,9 +21,6 @@ if (isset($_POST['btnSimpan'])) {
     }
 
     // ambil data dari form yang disubmit
-    $nama_tujuan = $tujuan->escape_string($_POST['nama_tujuan']);
-    $prodi = $tujuan->escape_string($_POST['prodi']);
-    $keterangan = $tujuan->escape_string($_POST['keterangan']);
 
     $act = $tujuan->execute("INSERT INTO tujuan SET nama_tujuan='$nama_tujuan',prodi='$prodi',image='$gambar',keterangan='$keterangan'");
 }

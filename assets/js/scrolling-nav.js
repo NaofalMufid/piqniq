@@ -27,15 +27,3 @@
   });
 
 })(jQuery); // End of use strict
-
-$(document).ready(function() {
-  // Selector input yang akan menampilkan autocomplete.
-          $( "#kamar" ).autocomplete({
-                  serviceUrl: "lib/autocomplete.php",   // Kode php untuk prosesing data.
-                  dataType: "JSON",           // Tipe data JSON.
-                  onSelect: function (suggestion) {
-                          $( "#kamar" ).val("" + suggestion.kamar);
-                          $( "#kamar_id" ).val("" + suggestion.kamar_id);
-                  }
-          });
-  });

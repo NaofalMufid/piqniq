@@ -14,19 +14,24 @@ $grup = new View();
             $data = $grup->getData($query);
             $no = 1;
             foreach ($data as $key => $res) {
-                if ($no % 2 == 0) {
-                    echo '
-                    <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-                    '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
-                    <span class="badge badge-success badge-pill">5 kosong</span>
-                    </li>';
-                } else {
-                    echo '
-                    <li class="list-group-item  d-flex justify-content-between align-items-center">
-                    '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
-                    <span class="badge badge-warning badge-pill">14 kosong</span>
-                    </li>';
-                }
+                $q = "SELECT COUNT(tiket.grup_id) as kosong FROM tiket WHERE tiket.grup_id='".$res['grup_id']."'";
+                $d = $grup->getData($q);
+                foreach ($d as $key => $val) {
+                    $kosong = $res['seat'] - $val['kosong'];
+                    if ($no % 2 == 0) {
+                        echo '
+                        <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                        '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
+                        <span class="badge badge-success badge-pill">'.$kosong.' kosong</span>
+                        </li>';
+                    } else {
+                        echo '
+                        <li class="list-group-item  d-flex justify-content-between align-items-center">
+                        '.$res['nama_grup'].' : '.$res['prodi'].' Jumlah kursi '.$res['seat'].'
+                        <span class="badge badge-warning badge-pill">'.$kosong.' kosong</span>
+                        </li>';
+                    }
+                }    
                 $no++;
             }
             ?>

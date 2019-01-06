@@ -1,5 +1,6 @@
 <?php
 $daftar = new View();
+require_once("administrator/action/daftar.php");
 ?>
 <section id="daftar" class="bg-light">
     <div class="container">
@@ -7,7 +8,7 @@ $daftar = new View();
             <div class="col-lg-10 mx-auto">
                 <h2 class="text-center">Formulir Pendaftaran</h2>
                 <hr>
-                <form>
+                <form method="POST">
                     <fieldset>
                         <legend>Data diri</legend>
                         <!--Form Data diri-->
@@ -20,7 +21,7 @@ $daftar = new View();
                                 <label for="">Nama</label>
                                 <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                               <label for="">Prodi</label>
                               <select class="form-control" name="prodi" id="prodi">
                                 <option selected>Prodi</option>
@@ -31,9 +32,16 @@ $daftar = new View();
                                 <option value="Teknik Mesin">Teknik Mesin</option>
                               </select>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <label for="">Kontak</label>
                                 <input type="text" class="form-control" name="kontak" id="kontak" placeholder="Kontak">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="">Kelas</label>
+                              <select class="form-control" name="kelas" id="kelas">
+                                <option value="A">Kelas A</option>
+                                <option value="B">Kelas B</option>
+                              </select>
                             </div>
                         </div>
                     </fieldset>
@@ -51,14 +59,23 @@ $daftar = new View();
                                     foreach ($data as $key => $res) {
                                         echo '<option value="'.$res['grup_id'].'">'.$res['nama_grup'].'</option>';
                                     }
-                                    ?>
+                                ?>
                                 </select>
                             </div>
                             <div class="col-auto">
-                                <input type="text" class="form-control" name="kamar" id="kamar" value="" placeholder="Kamar">
-                                <input type="hidden" name="kamar_id" name="kamar_id" value="">
+                                <input list="kamars" class="form-control" name="kamar">
+                                    <datalist id="kamars">
+                                    <?php
+                                        $kamar = "SELECT * FROM kamar ORDER BY nama_kamar";
+                                        $row = $daftar->getData($kamar);
+                                        $no = 1;
+                                        foreach ($row as $key => $res) {
+                                            echo '<option value="'.$res['kamar_id'].'">'.$res['nama_kamar'].'</option>';
+                                        }
+                                    ?>
+                                    </datalist>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-xs">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-xs" name="daftar">Daftar</button>
                         </div>        
                     </fieldset>
                 </form>

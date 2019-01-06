@@ -6,15 +6,17 @@
       <!-- /.container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
+    <!--Jquery-->
     <script src="assets/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="assets/vendor/jquery/jquery.autocomplete.min.js"></script>
 
     <!-- Custom JavaScript for this theme -->
+    <script src="assets/js/fungsi.js"></script>
     <script src="assets/js/scrolling-nav.js"></script>
     <script>
       //untuk carousel card

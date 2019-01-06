@@ -1,8 +1,8 @@
 <?php
 class Database{
     private $host = "localhost";
-    private $user = "sapa";
-    private $pass = "melbu";
+    private $user = "root";
+    private $pass = "Coyg2018";
     private $dbnm = "piknik";
     public $db;
     public function __construct()

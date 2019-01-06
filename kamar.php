@@ -36,14 +36,32 @@ $kamar = new View();
                             $data = $kamar->getData($query);
                             $no = 1;
                             foreach ($data as $key => $res) {
-                                echo'
-                                    <tr>
-                                        <td>'.$res['nama_kamar'].'</td>
-                                        <td>'.$res['isi'].'</td>
-                                        <td>
-                                        <span class="badge badge-danger badge-pill">0</span>
-                                        </td>
-                                    </tr>';    
+                                $q = "SELECT COUNT(tiket.kamar_id) as kosong FROM tiket WHERE tiket.kamar_id='".$res['kamar_id']."'";
+                                $d = $grup->getData($q);
+                                foreach ($d as $key => $val) {
+                                    $kosong = $res['isi'] - $val['kosong'];
+                                    if ($kosong != 0) {
+                                        echo'
+                                        <tr>
+                                            <td>'.$res['nama_kamar'].'</td>
+                                            <td>'.$res['isi'].'</td>
+                                            <td>
+                                            <span class="badge badge-info badge-pill">'.$kosong.'</span>
+                                            </td>
+                                        </tr>';
+                                    } else {
+                                        echo'
+                                        <tr>
+                                            <td>'.$res['nama_kamar'].'</td>
+                                            <td>'.$res['isi'].'</td>
+                                            <td>
+                                            <span class="badge badge-danger badge-pill">'.$kosong.'</span>
+                                            </td>
+                                        </tr>';
+                                    }
+                                    
+                                }    
+                                $no++;    
                             }
                             ?>
                             </tbody>
@@ -77,14 +95,32 @@ $kamar = new View();
                             $data = $kamar->getData($query);
                             $no = 1;
                             foreach ($data as $key => $res) {
-                                echo'
-                                    <tr>
-                                        <td>'.$res['nama_kamar'].'</td>
-                                        <td>'.$res['isi'].'</td>
-                                        <td>
-                                        <span class="badge badge-danger badge-pill">0</span>
-                                        </td>
-                                    </tr>';    
+                                $q = "SELECT COUNT(tiket.kamar_id) as kosong FROM tiket WHERE tiket.kamar_id='".$res['kamar_id']."'";
+                                $d = $grup->getData($q);
+                                foreach ($d as $key => $val) {
+                                    $kosong = $res['isi'] - $val['kosong'];
+                                    if ($kosong != 0) {
+                                        echo'
+                                        <tr>
+                                            <td>'.$res['nama_kamar'].'</td>
+                                            <td>'.$res['isi'].'</td>
+                                            <td>
+                                            <span class="badge badge-success badge-pill">'.$kosong.'</span>
+                                            </td>
+                                        </tr>';
+                                    } else {
+                                        echo'
+                                        <tr>
+                                            <td>'.$res['nama_kamar'].'</td>
+                                            <td>'.$res['isi'].'</td>
+                                            <td>
+                                            <span class="badge badge-danger badge-pill">'.$kosong.'</span>
+                                            </td>
+                                        </tr>';
+                                    }
+                                    
+                                }    
+                                $no++;
                             }
                             ?>
                         </tbody>
