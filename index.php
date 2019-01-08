@@ -25,7 +25,10 @@ require_once "header.php";
         </div>
       </div>
     </nav>
-
+    <?php
+    // if not regsiter view this
+    if(!isset($_GET['daftar'])) {
+    ?>    
     <header class="bg-primary">
       <div class="container text-center">
         <div class="jumbotron">
@@ -58,9 +61,17 @@ require_once "header.php";
     <!--Daftar-->
     <?php
     require_once"daftar.php";
+    // end not register
+    }
+    ?>
+
+    <?php
+    if ($_GET['daftar'] == "ok") {
+      require_once 'tiket.php';
+    }
     ?>
 
 <!--Footer-->
 <?php
 require_once "footer.php";
-?>    
+?>

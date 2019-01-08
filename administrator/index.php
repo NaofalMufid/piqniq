@@ -1,5 +1,14 @@
-<!--Header-->
 <?php
+session_start();
+require_once"action/crud.php";
+$auth = new Crud();
+
+//jika belum login
+if (!$auth->login())
+{
+  // $auth->redirect('login.php');
+}
+
 error_reporting(E_ALL);
 ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);

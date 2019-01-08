@@ -76,6 +76,39 @@ class Crud extends Database
                 return $new_name;
             }
     }
-}
 
-?>
+    public function cekLogin($uname, $upass)
+    {
+        $query = "SELECT user_id, username,password FROM user WHERE username='$upass' AND password='$upass'";
+        var_dump($query);
+        $result = $this->db->query($query);
+        $count_row = $result->num_rows;
+        while ($data = $result->fetch_assoc()) {
+            if ($count_row == 1) {
+                $_SESSION['uid'] = $data['user_id'];
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
+
+    public function login()
+    {
+        if (isset($_SESSION['uid'])) {
+            return true;
+        }
+    }
+
+    public function logoit()
+    {
+        session_destroy();
+        unset($_SESSION['uid']);
+        return true;
+    }
+
+    public function redirect($url)
+    {
+        header("Location: $url");
+    }
+}

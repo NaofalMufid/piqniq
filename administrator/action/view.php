@@ -42,6 +42,23 @@ class View extends Database
     {
         return $this->db->real_escape_string($value);
     }
+
+    /*
+    * Method untuk enkripsi url
+    *
+    */
+    // public function encrypt( $data ) {
+    //     $cryptKey  = 'd8578edf8458ce06fbc5bb76a58c5ca4';
+    //     $qEncoded      = base64_encode( mcrypt_encrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), $data, MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ) );
+    //     return( $qEncoded );
+    // }
+
+    // public function decrypt($data) {
+    //     $cryptKey  = 'd8578edf8458ce06fbc5bb76a58c5ca4';
+    //     $qDecoded  = rtrim( mcrypt_decrypt( MCRYPT_RIJNDAEL_256, md5( $cryptKey ), base64_decode( $data ), MCRYPT_MODE_CBC, md5( md5( $cryptKey ) ) ), "\0");
+    //     return( $qDecoded );
+    // }
+
 }
 
 ?>
