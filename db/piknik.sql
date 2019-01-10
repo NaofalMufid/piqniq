@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2019 at 10:25 AM
+-- Generation Time: Jan 10, 2019 at 07:03 AM
 -- Server version: 5.7.24-0ubuntu0.16.04.1
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
@@ -102,6 +102,13 @@ CREATE TABLE `peserta` (
   `kelas` enum('A','B') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `peserta`
+--
+
+INSERT INTO `peserta` (`peserta_id`, `nim`, `nama`, `prodi`, `kontak`, `kelas`) VALUES
+(1, '2016150069', 'Pedrosa', 'Teknik Mesin', '092348793473289', 'A');
+
 -- --------------------------------------------------------
 
 --
@@ -113,8 +120,15 @@ CREATE TABLE `tiket` (
   `nim` varchar(15) NOT NULL,
   `grup_id` int(11) NOT NULL,
   `kamar_id` int(11) NOT NULL,
-  `waktu` time NOT NULL
+  `waktu` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tiket`
+--
+
+INSERT INTO `tiket` (`tiket_id`, `nim`, `grup_id`, `kamar_id`, `waktu`) VALUES
+(1, '2016150069', 4, 16, '2019-01-08 12:00:58');
 
 -- --------------------------------------------------------
 
@@ -142,6 +156,26 @@ INSERT INTO `tujuan` (`tujuan_id`, `nama_tujuan`, `prodi`, `image`, `keterangan`
 (6, 'Sinar Mas Land', 'Teknik Sipil', '1351702288.jpg', ''),
 (7, 'MRT DKI Jakarta', 'Teknik Sipil', '1203649290.jpg', 'MRT Jakarta, singkatan dari Mass Rapid Transit Jakarta, Moda Raya Terpadu atau Angkutan Cepat Terpadu Jakarta adalah sebuah sistem transportasi transit cepat menggunakan kereta rel listrik yang sedang dibangun di Jakarta'),
 (8, 'PT. Pindad', 'Teknik Mesin', '1635522955.jpg', 'PT Pindad adalah perusahaan industri dan manufaktur yang bergerak dalam pembuatan produk militer dan komersial di Indonesia dan memperkerjakan sekitar 3000 karyawan.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` enum('S','A') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `level`) VALUES
+(2, 'palno', '$2y$10$RNMoZYVO3Wx7j//XSfwDMerVHZFBni1ao.2jDiVtz6dY9IqH5utrC', 'S');
 
 --
 -- Indexes for dumped tables
@@ -179,6 +213,12 @@ ALTER TABLE `tujuan`
   ADD PRIMARY KEY (`tujuan_id`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -196,17 +236,22 @@ ALTER TABLE `kamar`
 -- AUTO_INCREMENT for table `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `peserta_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `peserta_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tiket`
 --
 ALTER TABLE `tiket`
-  MODIFY `tiket_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `tiket_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tujuan`
 --
 ALTER TABLE `tujuan`
   MODIFY `tujuan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

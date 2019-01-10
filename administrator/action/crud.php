@@ -79,12 +79,12 @@ class Crud extends Database
 
     public function cekLogin($uname, $upass)
     {
-        $query = "SELECT user_id, username,password FROM user WHERE username='$upass' AND password='$upass'";
+        $query = "SELECT user_id, username,password FROM user WHERE username='$uname'";
         var_dump($query);
         $result = $this->db->query($query);
         $count_row = $result->num_rows;
         while ($data = $result->fetch_assoc()) {
-            if ($count_row == 1) {
+            if ($count_row == 1 && password_verify($upass, $data['password'])) {
                 $_SESSION['uid'] = $data['user_id'];
                 return true;
             }else {
@@ -100,7 +100,7 @@ class Crud extends Database
         }
     }
 
-    public function logoit()
+    public function logout()
     {
         session_destroy();
         unset($_SESSION['uid']);

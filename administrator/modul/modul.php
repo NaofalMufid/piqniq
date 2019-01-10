@@ -11,6 +11,8 @@ if ($mod == 'tujuan') {
     require_once"peserta.php";
 }else if($mod == "tiket"){
     require_once"tiket.php";
+}else if($mod == "user"){
+    require_once"user.php";
 } else {
     //echo "<h2>404 Rak Ono Latar</h2>";
 }

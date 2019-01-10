@@ -6,7 +6,7 @@ $auth = new Crud();
 //jika belum login
 if (!$auth->login())
 {
-  // $auth->redirect('login.php');
+  $auth->redirect('login.php');
 }
 
 error_reporting(E_ALL);
@@ -40,12 +40,11 @@ require_once"header.php";
                 if (!isset($_GET['modul'])):
                 ?>
                   <div class="jumbotron">
-                    <h1 class="display-3">Jumbo heading</h1>
-                    <p class="lead">Jumbo helper text</p>
+                    <h1 class="display-3">Piqniq dashboard admin page</h1>
+                    <p class="lead">Halaman yang dikhususkan untuk user yang memliki hak khusus</p>
                     <hr class="my-2">
-                    <p>More info</p>
                     <p class="lead">
-                      <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+                      <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Go</a>
                     </p>
                   </div>
                 <?php

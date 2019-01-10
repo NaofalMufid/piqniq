@@ -14,10 +14,10 @@ $grup = new View();
             $data = $grup->getData($query);
             $no = 1;
             foreach ($data as $key => $res) {
-                $q = "SELECT COUNT(tiket.grup_id) as kosong FROM tiket WHERE tiket.grup_id='".$res['grup_id']."'";
+                $q = "SELECT COUNT(tiket.grup_id) as isi FROM tiket WHERE tiket.grup_id='".$res['grup_id']."'";
                 $d = $grup->getData($q);
                 foreach ($d as $key => $val) {
-                    $kosong = $res['seat'] - $val['kosong'];
+                    $kosong = $res['seat'] - $val['isi'];
                     if ($no % 2 == 0) {
                         echo '
                         <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
