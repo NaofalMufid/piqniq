@@ -55,7 +55,7 @@ $kamar = new View();
                                             <td>'.$res['nama_kamar'].'</td>
                                             <td>'.$res['isi'].'</td>
                                             <td>
-                                            <span class="badge badge-danger badge-pill">'.$kosong.'</span>
+                                            <span class="badge badge-danger badge-pill">Penuh</span>
                                             </td>
                                         </tr>';
                                     }

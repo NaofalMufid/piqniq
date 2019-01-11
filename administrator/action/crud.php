@@ -80,7 +80,6 @@ class Crud extends Database
     public function cekLogin($uname, $upass)
     {
         $query = "SELECT user_id, username,password FROM user WHERE username='$uname'";
-        var_dump($query);
         $result = $this->db->query($query);
         $count_row = $result->num_rows;
         while ($data = $result->fetch_assoc()) {

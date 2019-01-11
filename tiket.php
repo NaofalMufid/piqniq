@@ -41,11 +41,14 @@ $data_tiket = $tiket->getData($query_tiket);
                         &nbsp;
                     </div>
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                         <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block"><i class="fa fa-pencil" aria-hidden="true"></i> Ubah</button>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                         <button type="button" name="" id="" class="btn btn-primary btn-lg btn-block"><i class="fa fa-print" aria-hidden="true"> Cetak</i></button>
+                        </div>
+                        <div class="col-sm-4">
+                        <a href="index.php" class="btn btn-primary btn-lg btn-block"><i class="fa fa-home" aria-hidden="true"> Kembali</i></a>
                         </div>
                     </div>
                     <?php

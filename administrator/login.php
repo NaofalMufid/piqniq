@@ -32,7 +32,6 @@ if (isset($_POST['btn-login'])) {
 </head>
 <body>
 	<form class="form-signin" method="post">
-      <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
       <label for="inputUsername" class="sr-only">Username</label>
       <input type="text" name="uname" id="uname" class="form-control" placeholder="Username" required="" autofocus="">

@@ -80,9 +80,19 @@ require_once("administrator/action/daftar.php");
                     </fieldset>
                 </form>
                 <p></p>
-                <div class="alert alert-primary" role="alert">
-                    <strong>Sesuaikan dengan data diri Anda dan ingat untuk kamar laki-laki perempuan dipisah</strong>
-                </div>      
+                <?php
+                if (isset($message)) {
+                ?>
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong><?=$message?></strong>
+                </div>
+                <?php
+                }
+                ?>      
             </div>
         </div>
     </div>
