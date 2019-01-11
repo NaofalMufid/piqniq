@@ -1,9 +1,11 @@
 # PiQniQ
 ## Sekilas
 Merupakan project untuk tugas akhir mata kuliah pemrograman web.
+
 Oleh : 
     - Czidni Sika Azkia (2016150081)
     - Moh. Naofal Mufid (2016150009)
+
 Tema yang diangkat adalah tentang info dan registrasi **KKL Fastikom UNSIQ**
 Disajikan halaman yang menyediakan informasi mulai dari :
 - Tujuan KKL : Tujuan dibagi per prodi.
